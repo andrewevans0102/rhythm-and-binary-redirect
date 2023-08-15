@@ -9,7 +9,7 @@ export default function ErrorPage() {
     const location = useLocation();
     console.error(error);
 
-    const pageBase = 'https://capable-crostata-1ee001.netlify.app';
+    const pageBase = 'https://andrewevans.dev';
 
     const [sendPage, setSendPage] = useState('');
 
