@@ -1,0 +1,193 @@
+@use 'sass:map';
+@import '_variables.scss';
+
+/* latin-ext */
+@font-face {
+    font-family: 'Cinzel';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./fonts/cinzel1.woff') format('woff');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+        U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+    font-family: 'Cinzel';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('./fonts/cinzel2.woff') format('woff');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+        U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212,
+        U+2215, U+FEFF, U+FFFD;
+}
+
+body {
+    background-color: map.get($colors, 'background') !important;
+    color: white;
+}
+
+.header {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('../home.jpg') 50% 0%;
+    background-size: cover;
+    color: map.get($colors, 'white');
+    height: calc(75vh - 85px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position-x: center;
+    background-position-y: center;
+    flex-direction: column;
+    box-shadow: 0 16px 12px -12px map.get($colors, 'black');
+    // flex-wrap: wrap;
+
+    &__title {
+        font-size: 3.75rem;
+        text-align: center;
+        color: map.get($colors, 'white');
+        font-family: map.get($fonts, 'title');
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+
+        @media (max-height: map.get($mobile, 'max-height')) {
+            font-size: 1.875rem;
+        }
+
+        @media (min-width: map.get($mobile, 'min-width')) and (max-width: map.get($mobile, 'max-width')) {
+            font-size: 1.875rem;
+        }
+
+        @media (min-width: map.get($tablet, 'min-width')) and (max-width: map.get($tablet, 'max-width')) {
+            font-size: 1.875rem;
+        }
+    }
+
+    &__links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        @media (min-width: map.get($mobile, 'min-width')) and (max-width: map.get($mobile, 'max-width')) {
+            flex-direction: column;
+        }
+
+        @media (max-height: map.get($mobile, 'max-height')) {
+            max-width: 400px;
+        }
+
+        @media (min-width: map.get($tablet, 'min-width')) and (max-width: map.get($tablet, 'max-width')) {
+            max-width: 500px;
+        }
+    }
+
+    &__icons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        a {
+            width: 50px;
+        }
+
+        @media (max-height: map.get($mobile, 'max-height')) {
+            max-width: 400px;
+        }
+
+        @media (min-width: map.get($tablet, 'min-width')) and (max-width: map.get($tablet, 'max-width')) {
+            max-width: 500px;
+        }
+    }
+
+    &__anchor {
+        margin: 20px;
+        font-size: 20px;
+    }
+
+    &__button {
+        @include home-button;
+
+        &--label {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        &--icon {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 40px;
+        text-align: center;
+    }
+
+    @media (max-height: map.get($mobile, 'max-height')) {
+        height: 250px;
+    }
+
+    @media (min-width: map.get($tablet, 'min-width')) and (max-width: map.get($tablet, 'max-width')) {
+        height: 400px;
+    }
+
+    @media (min-height: $max-screen) {
+        height: 400px;
+    }
+
+    @media (max-height: $max-screen) {
+        height: 400px;
+    }
+}
+
+.message {
+    margin: 0 auto;
+    text-align: center;
+
+    &__body {
+        display: flex;
+        justify-content: center;
+
+        p {
+            font-size: 40px;
+            margin: 20px;
+            max-width: 800px;
+
+            a {
+                color: map.get($colors, 'anchor');
+            }
+        }
+    }
+
+    h1 {
+        margin: 20px;
+        font-size: 80px;
+    }
+}
+
+.redirect {
+    margin: 0 auto;
+    text-align: center;
+
+    &__body {
+        display: flex;
+        justify-content: center;
+
+        p {
+            font-size: 40px;
+            margin: 20px;
+            max-width: 800px;
+            color: map.get($colors, 'green2');
+
+            a {
+                color: map.get($colors, 'anchor');
+            }
+        }
+    }
+}

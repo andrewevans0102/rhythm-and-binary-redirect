@@ -1,0 +1,78 @@
+@use 'sass:map';
+$fonts: (
+    title: (
+        'Cinzel',
+        serif,
+    ),
+    body: (
+        'Source Code Pro',
+        monospace,
+    ),
+);
+$colors: (
+    'background': #1b1e23,
+    'black': black,
+    'white': white,
+    'title': #099fff,
+    'anchor': #ff6600,
+    'offwhite': #f9f9f9,
+    'hover': #099fff,
+    'green': #57ad60,
+    'pink': pink,
+    'red': red,
+    'green2': #39ff14,
+    'inline': #77ba91,
+    'inline2': #cc99cd,
+    'gray': gray,
+    'gray2': #2f2f34,
+    'yellow': yellow,
+    'purple': #b884f9,
+);
+// https://www.freecodecamp.org/news/css-media-queries-breakpoints-media-types-standard-resolutions-and-more/
+$max-screen: 1201px;
+$mobile: (
+    min-width: 320px,
+    max-width: 480px,
+    min-height: 0,
+    max-height: 420px,
+);
+$tablet: (
+    min-width: 481px,
+    max-width: 768px,
+    min-height: 0,
+    max-height: 0,
+);
+$laptop: (
+    min-width: 769px,
+    max-width: 1024px,
+    min-height: 0,
+    max-height: 0,
+);
+$desktop: (
+    min-width: 1025px,
+    max-width: 1200px,
+    min-height: 0,
+    max-height: 0,
+);
+@mixin home-button() {
+    width: 200px;
+    height: 40px;
+    font-family: map.get($fonts, 'title');
+    font-size: 20px;
+    font-weight: 800;
+    color: map.get($colors, 'white');
+    background-color: map.get($colors, 'black');
+    border: solid map.get($colors, 'white') 2px;
+    border-radius: 20px;
+    margin: 10px;
+
+    &:hover {
+        color: map.get($colors, 'hover');
+        border: none;
+    }
+
+    @media (max-height: map.get($mobile, 'max-height')) {
+        font-size: 15px;
+        width: 150px;
+    }
+}
